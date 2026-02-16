@@ -1,0 +1,171 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "sofia-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: #f3f3f3;
+  color: #111;
+}
+
+.grid-content {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* FORZIAMO UN'ALTEZZA REALE */
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f3f3;
+  z-index: 1000;
+}
+
+.logo {
+  text-decoration: none;
+  color: #111;
+  font-size: 20px;
+  letter-spacing: 3px;
+  padding: 15px 0;
+}
+.logo img {
+  max-height: 44px;
+}
+.hamburger {
+  width: 40px;
+  height: 32px;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex; /* IMPORTANTISSIMO */
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #111;
+  transition: 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 10px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 20px;
+}
+
+/* OPEN STATE */
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+/* MAIN */
+main {
+}
+
+/* FOOTER */
+.site-footer {
+  padding: 80px 60px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* HERO */
+
+.hero {
+  height: 100vh;
+  background: url("/hero.jpg") center center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-btn {
+  border: 2px solid #111;
+  padding: 14px 32px;
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  background: transparent;
+  transition: 0.3s ease;
+}
+
+.projects-btn:hover {
+  background: #111;
+  color: white;
+}
+
+/* INTRO SECTION */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 120px 120px;
+  align-items: center;
+  background: #f3f3f3;
+}
+
+.intro-text h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  line-height: 1.3;
+}
+
+.intro-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 420px;
+}
+
+.intro-image img {
+  width: 100%;
+  display: block;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .intro {
+    grid-template-columns: 1fr;
+    padding: 80px 40px;
+  }
+}

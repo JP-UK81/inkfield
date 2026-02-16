@@ -1,23 +1,46 @@
+---
+const { title = "Inkfield" } = Astro.props;
+import "../styles/global.css";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://use.typekit.net/pwa7kgg.css" />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a href="/" class="logo">
+        <img src="/inkfield-logo.svg" alt="Inkfield" />
+      </a>
+
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div>inkfield</div>
+      <div>95 Victorian Grove, London, N16 8EJ</div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+
+      hamburger?.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

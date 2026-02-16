@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home | Inkfield">
+  <!-- HERO -->
+  <section class="hero">
+    <a href="/work" class="projects-btn"> Projects </a>
+  </section>
+
+  <!-- INTRO SECTION -->
+  <section class="intro grid-content">
+    <div class="intro-text">
+      <h2>Refined Interiors,<br />Thoughtfully Crafted</h2>
+
+      <p>
+        Inkfield offers a comprehensive interior design service taking care of a
+        project from initial space planning to accessories and dressing, with a
+        holistic approach.
+      </p>
+
+      <p>
+        Architecture and spatial design should come hand in hand with joinery
+        appearance and use, which in turn is what informs the entire soft
+        package and viceversa.
+      </p>
+
+      <p>
+        An interior design project is a machine of cogs not a linear process.
+      </p>
+    </div>
+
+    <div class="intro-image">
+      <img src="/chair.jpg" alt="Interior" />
+    </div>
+  </section>
 </Layout>
