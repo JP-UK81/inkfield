@@ -3,6 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: auto;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -160,8 +163,16 @@ body {
   transform: rotate(-45deg);
 }
 
-/* MAIN */
-main {
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .about-text,
+  .about {
+    padding-top: 20px !important;
+  }
+  .work-page {
+    margin-top: 10px !important;
+  }
 }
 
 /* FOOTER */
@@ -316,6 +327,25 @@ footer a {
   transition:
     transform 0.6s ease,
     opacity 0.6s ease;
+}
+.project-bottom {
+  padding: 10px 20px 200px;
+  max-width: 900px;
+}
+
+.project-category {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: #777;
+}
+
+.project-body p {
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 28px;
+  color: #444;
 }
 
 /* HOVER */
@@ -531,5 +561,23 @@ footer a {
 
   .gallery-row {
     margin-bottom: 16px;
+  }
+}
+/* HEADER AND FOOTER */
+@media (max-width: 768px) {
+  .site-header {
+    position: relative;
+  }
+  .site-footer {
+    padding: 80px 60px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .logo-footer {
+    align-items: center;
   }
 }

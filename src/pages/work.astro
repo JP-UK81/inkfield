@@ -1,0 +1,63 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const projects = [
+  {
+    slug: "sotogrande",
+    title: "Sotogrande, Family resort",
+    excerpt:
+      "Purposely built holiday villa on the edges of a world famous golf course with stunning sea views",
+    image: "/work/work-sotogrande.jpg",
+  },
+  {
+    slug: "jacob",
+    title: "Jacob David, Beauty Emporio, Milan, Italy",
+    excerpt:
+      "Luxury beauty and hair salon specialising in high end fashion styling and aesthetic medicine",
+    image: "/work/work-jacob.jpg",
+  },
+  {
+    slug: "london-family",
+    title: "London family home",
+    excerpt:
+      "Complete residential renovation of two separate 1930s houses merged together",
+    image: "/work/work-london-family.jpg",
+  },
+  {
+    slug: "penthouse",
+    title: "London Penthouse",
+    excerpt:
+      "Complete residential refurbishment of a penthouse in the heart of leafy Hampstead",
+    image: "/work/work-penthouse.jpg",
+  },
+  {
+    slug: "lecce",
+    title: "Lecce, Boutique BnB",
+    excerpt: "Complete refurbishment of an apartment into a boutique bnb",
+    image: "/work/work-lecce.jpg",
+  },
+];
+---
+
+<Layout title="Work | Inkfield">
+  <section class="work-page">
+    <div class="grid-content">
+      <h1 class="work-heading">Projects</h1>
+
+      {
+        projects.map((project) => (
+          <a href={`/work/${project.slug}`} class="work-item">
+            <div class="work-image">
+              <img src={project.image} alt={project.title} />
+            </div>
+
+            <div class="work-meta">
+              <h2>{project.title}</h2>
+              <p>{project.excerpt}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

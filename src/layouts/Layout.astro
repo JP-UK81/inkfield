@@ -25,22 +25,45 @@ import "../styles/global.css";
         <span></span>
       </button>
     </header>
+    <div class="menu-overlay" id="menu">
+      <button class="menu-close" id="menu-close">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="menu-nav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/work">Work</a>
+      </nav>
+    </div>
 
     <main>
       <slot />
     </main>
 
     <footer class="site-footer">
-      <div>inkfield</div>
+      <div class="logo-footer">
+        <img src="/inkfield-logo.svg" alt="Inkfield" />
+        © {new Date().getFullYear()} Inkfield. All rights reserved.
+      </div>
+      <div><a href="mailto:maria@inkfield.co.uk">maria@inkfield.co.uk</a></div>
       <div>95 Victorian Grove, London, N16 8EJ</div>
     </footer>
 
     <script>
       const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
+      const closeBtn = document.getElementById("menu-close");
 
-      hamburger?.addEventListener("click", () => {
+      function toggleMenu() {
         hamburger.classList.toggle("open");
-      });
+        menu.classList.toggle("active");
+        document.body.classList.toggle("no-scroll");
+      }
+
+      hamburger?.addEventListener("click", toggleMenu);
+      closeBtn?.addEventListener("click", toggleMenu);
     </script>
+    <script type="module" src="/src/scripts/lenis.js"></script>
   </body>
 </html>

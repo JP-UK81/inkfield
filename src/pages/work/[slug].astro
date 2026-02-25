@@ -15,13 +15,42 @@ const projects = [
     excerpt:
       "Purposely built holiday villa on the edges of a world famous golf course with stunning sea views",
     heroFile: "1.00.webp",
+    category: "Residential",
+    body: `
+The brief from the client was two-fold and simple: to lift the original beauty of the site and for the atmosphere to be representative of the beauty of comfort.
+
+The unavoidable need for equipment and an ergonomic work space needed to blend in the 19th century architectural features and painted ceilings.
+
+In parallel it was necessary that the clientele is looked after with high tech treatments and the highest level of professionalism...
+
+Taken in its holistic sense and translating it into a design concept it meant eliminating jarriness. Nothing stands out so that everything stands out.
+`,
   },
+
   {
     slug: "jacob",
     title: "Jacob David, Beauty Emporio, Milan, Italy",
     excerpt:
       "Luxury beauty and hair salon specialising in high end fashion styling and aesthetic medicine",
     heroFile: "3.00-verdina-da-sistemare.webp",
+    category: "Commercial",
+    body: `
+The brief from the client was in two-fold and simple: to lift the original beauty of the site and for the atmosphere to be representative of the beauty of comfort.
+The unavoidable need for equipment and an ergonomic work space needed to blend in the 19th century architectural features and painted ceilings. 
+
+In parallel it is necessary that the clientele is looked after with high tech treatments and the highest level of professionalism, which needed to marry an utmost feeling of comfort and relaxation.
+
+Taken in its holistic sense and translating it into a design concept it meant eliminating jarriness. Nothing stands out so that everything stands out.
+
+Elements balance off one another to be background and hero of one another.
+The original features of the building did half the job, and were starting point to the design process. Everything else in those main reception rooms has a soft minimalistic language where monolithic geometries made comfortable to sight and touch by the materials chosen. These house all the practical elements of the salon, leaving the beauty of the building untouched and able to stand alone.
+
+A general feeling of homeliness needed to reconcile seamlessly with the experience of being the only one that matters.
+
+Each styling station with precious gold leaf and marble details defines the clients' own private space by being hidden inside the monolithic built in joinery. The armchair and side tables were carefully selected to convey that very easy comfort of a relaxed living room.
+
+Similarly the medical treating rooms have a luxurious private dressing room feel to convey comfort.
+`,
   },
   {
     slug: "london-family",
@@ -29,6 +58,15 @@ const projects = [
     excerpt:
       "Complete residential renovation of two separate 1930s houses merged together",
     heroFile: "91-93-hillway-82.webp",
+    category: "Residential",
+    body: `
+The carefully restored facades hide a gem of minimalistic architecture: strong lines, neat spaces, sculptural elements.
+
+Designed to create a most spacious ground floor while keeping original proportions for the upper floor bedrooms. 
+
+The interiors are conceived to highlight the minimalistic intent of the client vision for the architecture so they don’t fight for who is hero but seamlessly work together to provide elegance and comfort in the fruition of the spaces while at the same time staying true to the minimalistic brief
+
+`,
   },
   {
     slug: "penthouse",
@@ -36,12 +74,22 @@ const projects = [
     excerpt:
       "Complete residential refurbishment of a penthouse in the heart of leafy Hampstead",
     heroFile: "4.00.webp",
+    category: "Residential",
+    body: `
+The entrance and living areas benefitted from great architecture design and plenty of natural light that the interior design harvested to create luxurious and elegant spaces to inhabit
+Eclectic clients with a love for colour and not afraid to push boundaries allowed for unconventional design choices, the result: a fun and elegant apartment
+`,
   },
   {
     slug: "lecce",
     title: "Lecce, Boutique BnB",
     excerpt: "Complete refurbishment of an apartment into a boutique bnb",
     heroFile: "5.00.webp",
+    category: "Residential",
+    body: `
+Situated at the heart of the baroque jewel that is Lecce in the southern most tip of Italy where the sun, the sea and the wind reign supreme.
+The brief was to create a space that was true to its location, comfortable and easy like a seaside holiday yet sophisticated and lush enough to reflect the nature of the city.
+`,
   },
 ];
 
@@ -53,6 +101,16 @@ export function getStaticPaths() {
       excerpt:
         "Purposely built holiday villa on the edges of a world famous golf course with stunning sea views",
       heroFile: "1.00.webp",
+      category: "Residential",
+      body: `
+The brief from the client was two-fold and simple: to lift the original beauty of the site and for the atmosphere to be representative of the beauty of comfort.
+
+The unavoidable need for equipment and an ergonomic work space needed to blend in the 19th century architectural features and painted ceilings.
+
+In parallel it was necessary that the clientele is looked after with high tech treatments and the highest level of professionalism...
+
+Taken in its holistic sense and translating it into a design concept it meant eliminating jarriness. Nothing stands out so that everything stands out.
+`,
     },
     {
       slug: "jacob",
@@ -60,6 +118,24 @@ export function getStaticPaths() {
       excerpt:
         "Luxury beauty and hair salon specialising in high end fashion styling and aesthetic medicine",
       heroFile: "3.00-verdina-da-sistemare.webp",
+      category: "Commercial",
+      body: `
+The brief from the client was in two-fold and simple: to lift the original beauty of the site and for the atmosphere to be representative of the beauty of comfort.
+The unavoidable need for equipment and an ergonomic work space needed to blend in the 19th century architectural features and painted ceilings. 
+
+In parallel it is necessary that the clientele is looked after with high tech treatments and the highest level of professionalism, which needed to marry an utmost feeling of comfort and relaxation.
+
+Taken in its holistic sense and translating it into a design concept it meant eliminating jarriness. Nothing stands out so that everything stands out.
+
+Elements balance off one another to be background and hero of one another.
+The original features of the building did half the job, and were starting point to the design process. Everything else in those main reception rooms has a soft minimalistic language where monolithic geometries made comfortable to sight and touch by the materials chosen. These house all the practical elements of the salon, leaving the beauty of the building untouched and able to stand alone.
+
+A general feeling of homeliness needed to reconcile seamlessly with the experience of being the only one that matters.
+
+Each styling station with precious gold leaf and marble details defines the clients' own private space by being hidden inside the monolithic built in joinery. The armchair and side tables were carefully selected to convey that very easy comfort of a relaxed living room.
+
+Similarly the medical treating rooms have a luxurious private dressing room feel to convey comfort.
+`,
     },
     {
       slug: "london-family",
@@ -67,6 +143,15 @@ export function getStaticPaths() {
       excerpt:
         "Complete residential renovation of two separate 1930s houses merged together",
       heroFile: "91-93-hillway-82.webp",
+      category: "Residential",
+      body: `
+The carefully restored facades hide a gem of minimalistic architecture: strong lines, neat spaces, sculptural elements.
+
+Designed to create a most spacious ground floor while keeping original proportions for the upper floor bedrooms. 
+
+The interiors are conceived to highlight the minimalistic intent of the client vision for the architecture so they don’t fight for who is hero but seamlessly work together to provide elegance and comfort in the fruition of the spaces while at the same time staying true to the minimalistic brief
+
+`,
     },
     {
       slug: "penthouse",
@@ -74,12 +159,22 @@ export function getStaticPaths() {
       excerpt:
         "Complete residential refurbishment of a penthouse in the heart of leafy Hampstead",
       heroFile: "4.00.webp",
+      category: "Residential",
+      body: `
+The entrance and living areas benefitted from great architecture design and plenty of natural light that the interior design harvested to create luxurious and elegant spaces to inhabit
+Eclectic clients with a love for colour and not afraid to push boundaries allowed for unconventional design choices, the result: a fun and elegant apartment
+`,
     },
     {
       slug: "lecce",
       title: "Lecce, Boutique BnB",
       excerpt: "Complete refurbishment of an apartment into a boutique bnb",
       heroFile: "5.00.webp",
+      category: "Residential",
+      body: `
+Situated at the heart of the baroque jewel that is Lecce in the southern most tip of Italy where the sun, the sea and the wind reign supreme.
+The brief was to create a space that was true to its location, comfortable and easy like a seaside holiday yet sophisticated and lush enough to reflect the nature of the city.
+`,
     },
   ];
 
@@ -90,11 +185,13 @@ export function getStaticPaths() {
       title: project.title,
       excerpt: project.excerpt,
       heroFile: project.heroFile,
+      category: project.category,
+      body: project.body,
     },
   }));
 }
 
-const { slug, title, excerpt, heroFile } = Astro.props;
+const { slug, title, excerpt, heroFile, category, body } = Astro.props;
 
 // ---------------------------------------------------------------------------
 // Read image files from public/work/[slug]/
@@ -127,7 +224,11 @@ type GalleryRow =
  * Matches filenames starting with prefix followed by "." or "-"
  * to handle both plain ("3.04.webp") and annotated ("3.04-dettaglio.webp") names.
  */
-function findPartner(files: string[], prefix: string, exclude: string): string | undefined {
+function findPartner(
+  files: string[],
+  prefix: string,
+  exclude: string,
+): string | undefined {
   return files.find((f) => {
     if (f === exclude) return false;
     const lower = f.toLowerCase();
@@ -146,7 +247,10 @@ function parseGalleryRows(files: string[]): GalleryRow[] {
     const nameLower = file.toLowerCase();
 
     // LAYOUT-05: image-with-text (check first — unique suffix pattern)
-    if (nameLower.includes("-on-its-own-with") || nameLower.includes("-on-nits-own-with")) {
+    if (
+      nameLower.includes("-on-its-own-with") ||
+      nameLower.includes("-on-nits-own-with")
+    ) {
       const textSide = imageTextCount % 2 === 0 ? "right" : "left";
       imageTextCount++;
       consumed.add(file);
@@ -156,7 +260,9 @@ function parseGalleryRows(files: string[]): GalleryRow[] {
 
     // LAYOUT-04: three-up — must check before LAYOUT-02 (both contain "side-by-side-to")
     // Use \d+\.\d+ (not [\d.]+) to capture clean numeric prefix without trailing dot
-    const threeUpMatch = nameLower.match(/-side-by-side-to-(\d+\.\d+)-and-(\d+\.\d+)/);
+    const threeUpMatch = nameLower.match(
+      /-side-by-side-to-(\d+\.\d+)-and-(\d+\.\d+)/,
+    );
     if (threeUpMatch) {
       const partner1 = findPartner(files, threeUpMatch[1], file);
       const partner2 = findPartner(files, threeUpMatch[2], file);
@@ -184,7 +290,9 @@ function parseGalleryRows(files: string[]): GalleryRow[] {
     }
 
     // LAYOUT-03: main+detail (matches "-as-small-detail-to-the-side")
-    const mainDetailMatch = nameLower.match(/-(?:smaller-)?with-(\d+\.\d+)-as-small-detail-to-the-side/);
+    const mainDetailMatch = nameLower.match(
+      /-(?:smaller-)?with-(\d+\.\d+)-as-small-detail-to-the-side/,
+    );
     if (mainDetailMatch) {
       const detail = findPartner(files, mainDetailMatch[1], file);
       consumed.add(file);
@@ -220,46 +328,100 @@ const galleryRows = parseGalleryRows(galleryFiles);
     </div>
 
     <div class="project-gallery grid-content">
-      {galleryRows.map((row) => {
-        if (row.type === "full") return (
-          <div class="gallery-row gallery-row--full">
-            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
-          </div>
-        );
+      {
+        galleryRows.map((row) => {
+          if (row.type === "full")
+            return (
+              <div class="gallery-row gallery-row--full">
+                <img
+                  src={`/work/${slug}/${row.images[0]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+              </div>
+            );
 
-        if (row.type === "side-by-side") return (
-          <div class="gallery-row gallery-row--side-by-side">
-            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
-            <img src={`/work/${slug}/${row.images[1]}`} alt={title} loading="lazy" />
-          </div>
-        );
+          if (row.type === "side-by-side")
+            return (
+              <div class="gallery-row gallery-row--side-by-side">
+                <img
+                  src={`/work/${slug}/${row.images[0]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+                <img
+                  src={`/work/${slug}/${row.images[1]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+              </div>
+            );
 
-        if (row.type === "main-detail") return (
-          <div class="gallery-row gallery-row--main-detail">
-            <img class="main-image" src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
-            <img class="detail-image" src={`/work/${slug}/${row.images[1]}`} alt={title} loading="lazy" />
-          </div>
-        );
+          if (row.type === "main-detail")
+            return (
+              <div class="gallery-row gallery-row--main-detail">
+                <img
+                  class="main-image"
+                  src={`/work/${slug}/${row.images[0]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+                <img
+                  class="detail-image"
+                  src={`/work/${slug}/${row.images[1]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+              </div>
+            );
 
-        if (row.type === "three-up") return (
-          <div class="gallery-row gallery-row--three-up">
-            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
-            <img src={`/work/${slug}/${row.images[1]}`} alt={title} loading="lazy" />
-            <img src={`/work/${slug}/${row.images[2]}`} alt={title} loading="lazy" />
-          </div>
-        );
+          if (row.type === "three-up")
+            return (
+              <div class="gallery-row gallery-row--three-up">
+                <img
+                  src={`/work/${slug}/${row.images[0]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+                <img
+                  src={`/work/${slug}/${row.images[1]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+                <img
+                  src={`/work/${slug}/${row.images[2]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+              </div>
+            );
 
-        if (row.type === "image-text") return (
-          <div class={`gallery-row gallery-row--image-text gallery-row--text-${row.textSide}`}>
-            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
-            <div class="gallery-text-column">
-              <p>Interior design by Inkfield.</p>
-            </div>
-          </div>
-        );
+          if (row.type === "image-text")
+            return (
+              <div
+                class={`gallery-row gallery-row--image-text gallery-row--text-${row.textSide}`}
+              >
+                <img
+                  src={`/work/${slug}/${row.images[0]}`}
+                  alt={title}
+                  loading="lazy"
+                />
+                <div class="gallery-text-column">
+                  <p>Interior design by Inkfield.</p>
+                </div>
+              </div>
+            );
 
-        return null;
-      })}
+          return null;
+        })
+      }
+    </div>
+    <div class="project-bottom grid-content">
+      <p class="project-category">{category}</p>
+
+      <div class="project-body">
+        {body.split("\n\n").map((paragraph) => <p>{paragraph}</p>)}
+      </div>
     </div>
   </article>
 </Layout>
