@@ -33,20 +33,24 @@ Plans:
 ### Phase 2: Project Pages
 **Goal**: All five project detail pages are live, matching the PDF mockup's layout rules and the site's design language, and work correctly on mobile
 **Depends on**: Phase 1
-**Requirements**: ROUTE-01, PAGE-01, PAGE-02, PAGE-03, PAGE-04, PAGE-05
+**Requirements**: ROUTE-01, ROUTE-02, PAGE-01, PAGE-02, PAGE-03, PAGE-04, PAGE-05, LAYOUT-01, LAYOUT-02, LAYOUT-03, LAYOUT-04, LAYOUT-05, DESIGN-01, DESIGN-02, DESIGN-03
 **Success Criteria** (what must be TRUE):
   1. Visiting `/work/sotogrande`, `/work/jacob`, `/work/london-family`, `/work/penthouse`, and `/work/lecce` each renders a complete project page
   2. Each page shows a full-width hero image, followed by a gallery where images appear in their correct layout variant (full-width, side-by-side, main+detail, three-up, image-with-text)
-  3. Typography, spacing, and colour match the existing homepage and about page — the pages feel like part of the same site
+  3. Typography, spacing, and colour match the existing homepage and about page -- the pages feel like part of the same site
   4. All pages are usable on mobile: images resize correctly, side-by-side layouts stack or scale without overflow
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md -- Dynamic route skeleton: [slug].astro with static paths, hero, and title/excerpt/back-link block
+- [ ] 02-02-PLAN.md -- Gallery layout system: filename parser + all 5 layout variants + mobile CSS + visual checkpoint
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2
+Phases execute in numeric order: 1 -> 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Image Preparation | 1/1 | Complete    | 2026-02-25 |
-| 2. Project Pages | 0/? | Not started | - |
+| 2. Project Pages | 0/2 | Not started | - |
