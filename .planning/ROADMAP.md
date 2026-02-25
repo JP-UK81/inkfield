@@ -20,12 +20,15 @@ Decimal phases appear between their surrounding integers in numeric order.
 ### Phase 1: Image Preparation
 **Goal**: All project images are web-optimised and correctly located so the page-building phase can reference them without revisiting assets
 **Depends on**: Nothing (first phase)
-**Requirements**: IMG-01, IMG-02
+**Requirements**: IMG-01, IMG-02, IMG-03
 **Success Criteria** (what must be TRUE):
   1. Every image exists in `public/work/[slug]/` as a WebP file at appropriate dimensions
   2. No source image is being served as a raw uncompressed file
   3. File naming preserves the layout-encoding convention so the route can parse it
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Write and run image optimisation script to convert 60 source JPEGs to WebP in public/work/[slug]/
 
 ### Phase 2: Project Pages
 **Goal**: All five project detail pages are live, matching the PDF mockup's layout rules and the site's design language, and work correctly on mobile
@@ -45,5 +48,5 @@ Phases execute in numeric order: 1 → 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Image Preparation | 0/? | Not started | - |
+| 1. Image Preparation | 0/1 | Not started | - |
 | 2. Project Pages | 0/? | Not started | - |
