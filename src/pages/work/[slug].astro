@@ -1,5 +1,12 @@
 ---
+import { readdirSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 import Layout from "../../layouts/Layout.astro";
+
+// ---------------------------------------------------------------------------
+// Project data (duplicated inside getStaticPaths — Astro requires it)
+// ---------------------------------------------------------------------------
 
 const projects = [
   {
@@ -21,7 +28,7 @@ const projects = [
     title: "London family home",
     excerpt:
       "Complete residential renovation of two separate 1930s houses merged together",
-    heroFile: "2.01.webp",
+    heroFile: "91-93-hillway-82.webp",
   },
   {
     slug: "penthouse",
@@ -59,7 +66,7 @@ export function getStaticPaths() {
       title: "London family home",
       excerpt:
         "Complete residential renovation of two separate 1930s houses merged together",
-      heroFile: "2.01.webp",
+      heroFile: "91-93-hillway-82.webp",
     },
     {
       slug: "penthouse",
@@ -88,6 +95,116 @@ export function getStaticPaths() {
 }
 
 const { slug, title, excerpt, heroFile } = Astro.props;
+
+// ---------------------------------------------------------------------------
+// Read image files from public/work/[slug]/
+// ---------------------------------------------------------------------------
+
+// import.meta.url points to src/pages/work/[slug].astro
+// Four levels up: work/ -> pages/ -> src/ -> project-root
+const projectRoot = path.resolve(fileURLToPath(import.meta.url), "../../../..");
+const imageDir = path.join(projectRoot, "public", "work", slug);
+const allFiles = readdirSync(imageDir)
+  .filter((f) => f.endsWith(".webp"))
+  .sort();
+
+// Exclude hero from gallery
+const galleryFiles = allFiles.filter((f) => f !== heroFile);
+
+// ---------------------------------------------------------------------------
+// parseGalleryRows — convert sorted filenames into typed layout rows
+// ---------------------------------------------------------------------------
+
+type GalleryRow =
+  | { type: "full"; images: [string] }
+  | { type: "side-by-side"; images: [string, string] }
+  | { type: "main-detail"; images: [string, string] }
+  | { type: "three-up"; images: [string, string, string] }
+  | { type: "image-text"; images: [string]; textSide: "left" | "right" };
+
+/**
+ * Find a partner file by its numeric prefix (e.g. "3.04").
+ * Matches filenames starting with prefix followed by "." or "-"
+ * to handle both plain ("3.04.webp") and annotated ("3.04-dettaglio.webp") names.
+ */
+function findPartner(files: string[], prefix: string, exclude: string): string | undefined {
+  return files.find((f) => {
+    if (f === exclude) return false;
+    const lower = f.toLowerCase();
+    return lower.startsWith(prefix + ".") || lower.startsWith(prefix + "-");
+  });
+}
+
+function parseGalleryRows(files: string[]): GalleryRow[] {
+  const consumed = new Set<string>();
+  const rows: GalleryRow[] = [];
+  let imageTextCount = 0;
+
+  for (const file of files) {
+    if (consumed.has(file)) continue;
+
+    const nameLower = file.toLowerCase();
+
+    // LAYOUT-05: image-with-text (check first — unique suffix pattern)
+    if (nameLower.includes("-on-its-own-with") || nameLower.includes("-on-nits-own-with")) {
+      const textSide = imageTextCount % 2 === 0 ? "right" : "left";
+      imageTextCount++;
+      consumed.add(file);
+      rows.push({ type: "image-text", images: [file], textSide });
+      continue;
+    }
+
+    // LAYOUT-04: three-up — must check before LAYOUT-02 (both contain "side-by-side-to")
+    // Use \d+\.\d+ (not [\d.]+) to capture clean numeric prefix without trailing dot
+    const threeUpMatch = nameLower.match(/-side-by-side-to-(\d+\.\d+)-and-(\d+\.\d+)/);
+    if (threeUpMatch) {
+      const partner1 = findPartner(files, threeUpMatch[1], file);
+      const partner2 = findPartner(files, threeUpMatch[2], file);
+      consumed.add(file);
+      if (partner1) consumed.add(partner1);
+      if (partner2) consumed.add(partner2);
+      rows.push({
+        type: "three-up",
+        images: [file, partner1 ?? file, partner2 ?? file],
+      });
+      continue;
+    }
+
+    // LAYOUT-02: side-by-side (two equal columns)
+    const sideBySideMatch = nameLower.match(/-side-by-side-to-(\d+\.\d+)/);
+    if (sideBySideMatch) {
+      const partner = findPartner(files, sideBySideMatch[1], file);
+      consumed.add(file);
+      if (partner) consumed.add(partner);
+      rows.push({
+        type: "side-by-side",
+        images: [file, partner ?? file],
+      });
+      continue;
+    }
+
+    // LAYOUT-03: main+detail (matches "-as-small-detail-to-the-side")
+    const mainDetailMatch = nameLower.match(/-(?:smaller-)?with-(\d+\.\d+)-as-small-detail-to-the-side/);
+    if (mainDetailMatch) {
+      const detail = findPartner(files, mainDetailMatch[1], file);
+      consumed.add(file);
+      if (detail) consumed.add(detail);
+      rows.push({
+        type: "main-detail",
+        images: [file, detail ?? file],
+      });
+      continue;
+    }
+
+    // LAYOUT-01: full-width (default — plain filename or unrecognised suffix)
+    consumed.add(file);
+    rows.push({ type: "full", images: [file] });
+  }
+
+  return rows;
+}
+
+const galleryRows = parseGalleryRows(galleryFiles);
 ---
 
 <Layout title={`${title} | Inkfield`}>
@@ -103,6 +220,46 @@ const { slug, title, excerpt, heroFile } = Astro.props;
     </div>
 
     <div class="project-gallery grid-content">
+      {galleryRows.map((row) => {
+        if (row.type === "full") return (
+          <div class="gallery-row gallery-row--full">
+            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
+          </div>
+        );
+
+        if (row.type === "side-by-side") return (
+          <div class="gallery-row gallery-row--side-by-side">
+            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
+            <img src={`/work/${slug}/${row.images[1]}`} alt={title} loading="lazy" />
+          </div>
+        );
+
+        if (row.type === "main-detail") return (
+          <div class="gallery-row gallery-row--main-detail">
+            <img class="main-image" src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
+            <img class="detail-image" src={`/work/${slug}/${row.images[1]}`} alt={title} loading="lazy" />
+          </div>
+        );
+
+        if (row.type === "three-up") return (
+          <div class="gallery-row gallery-row--three-up">
+            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
+            <img src={`/work/${slug}/${row.images[1]}`} alt={title} loading="lazy" />
+            <img src={`/work/${slug}/${row.images[2]}`} alt={title} loading="lazy" />
+          </div>
+        );
+
+        if (row.type === "image-text") return (
+          <div class={`gallery-row gallery-row--image-text gallery-row--text-${row.textSide}`}>
+            <img src={`/work/${slug}/${row.images[0]}`} alt={title} loading="lazy" />
+            <div class="gallery-text-column">
+              <p>Interior design by Inkfield.</p>
+            </div>
+          </div>
+        );
+
+        return null;
+      })}
     </div>
   </article>
 </Layout>
