@@ -1,6 +1,7 @@
 ---
 const { title = "Inkfield" } = Astro.props;
 import "../styles/global.css";
+import { initLenis } from "../scripts/lenis.js";
 ---
 
 <!doctype html>
@@ -64,8 +65,8 @@ import "../styles/global.css";
       hamburger?.addEventListener("click", toggleMenu);
       closeBtn?.addEventListener("click", toggleMenu);
     </script>
-    <script type="module">
-      import "../scripts/lenis.js";
+    <script>
+      initLenis();
     </script>
   </body>
 </html>
