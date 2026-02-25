@@ -3,6 +3,11 @@
 *::after {
   box-sizing: border-box;
 }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 body {
   margin: 0;
@@ -16,21 +21,20 @@ body {
 .grid-content {
   max-width: 1600px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* HEADER */
 .site-header {
-  position: fixed;
+  position: absolute; /* NON fixed per ora */
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px; /* FORZIAMO UN'ALTEZZA REALE */
-  padding: 0 60px;
+  padding: 40px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f3f3f3;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .logo {
@@ -93,12 +97,86 @@ body {
   transform: rotate(-45deg);
   top: 10px;
 }
+/* OVERLAY */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 200;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* MENU LINKS */
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: center;
+}
+
+.menu-nav a {
+  font-size: 42px;
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
+.menu-close {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-close span {
+  position: absolute;
+  top: 14px;
+  width: 100%;
+  height: 2px;
+  background: black;
+}
+
+.menu-close span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.menu-close span:nth-child(2) {
+  transform: rotate(-45deg);
+}
 
 /* MAIN */
 main {
 }
 
 /* FOOTER */
+
+.logo-footer img {
+  width: 120px;
+}
+.logo-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer a {
+  color: #111;
+}
 .site-footer {
   padding: 80px 60px;
   display: flex;
@@ -109,11 +187,13 @@ main {
 /* HERO */
 
 .hero {
+  width: 100%;
   height: 100vh;
   background: url("/hero.jpg") center center / cover no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
+  padding-bottom: 100px;
 }
 
 .projects-btn {
@@ -167,5 +247,168 @@ main {
   .intro {
     grid-template-columns: 1fr;
     padding: 80px 40px;
+  }
+}
+
+/* ABOUT */
+
+.about {
+  padding-top: 160px;
+  padding-bottom: 120px;
+}
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.about-text {
+  padding-top: 120px;
+}
+
+/* Mobile */
+.about {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .about {
+    display: grid;
+    grid-template-columns: 170px 1.5fr 1fr; /* spazio logo + img + text */
+    gap: 60px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .about-image {
+    grid-column: 2;
+  }
+
+  .about-text {
+    grid-column: 3;
+  }
+}
+
+/* WORK */
+
+.work-page {
+  margin-top: 130px;
+}
+
+.work-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s ease;
+}
+
+.work-image {
+  overflow: hidden;
+}
+
+.work-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+/* HOVER */
+.work-item:hover img {
+  transform: scale(1.04);
+  opacity: 0.95;
+}
+
+.work-item:hover {
+  transform: translateY(-4px);
+}
+
+.work-meta {
+  margin-top: 18px;
+  margin-bottom: 80px;
+}
+
+.work-meta h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.5px;
+}
+
+.work-meta p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* PROJECT PAGES */
+
+/* Hero: full-bleed, no container, no side margins */
+.project-hero {
+  width: 100%;
+}
+
+.project-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-height: 50vh;
+  object-fit: cover;
+}
+
+/* Title block: contained width via .grid-content, comfortable vertical rhythm */
+.project-header {
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+.project-back {
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.project-back:hover {
+  color: #111;
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.5px;
+}
+
+.project-excerpt {
+  font-size: 15px;
+  color: #666;
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* Gallery container — Plan 02 populates internals */
+.project-gallery {
+  padding-bottom: 120px;
+}
+
+/* PROJECT PAGES — Mobile */
+@media (max-width: 768px) {
+  .project-header {
+    padding-top: 40px;
+    padding-bottom: 32px;
+  }
+
+  .project-title {
+    font-size: 22px;
   }
 }
