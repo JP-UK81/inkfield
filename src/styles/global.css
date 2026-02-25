@@ -412,3 +412,124 @@ footer a {
     font-size: 22px;
   }
 }
+
+/* GALLERY LAYOUTS */
+
+/* Shared row styles */
+.gallery-row {
+  margin-bottom: 32px;
+}
+
+.gallery-row img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* LAYOUT-01: Full-width */
+.gallery-row--full img {
+  width: 100%;
+}
+
+/* LAYOUT-02: Side-by-side — 2 equal columns */
+.gallery-row--side-by-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* LAYOUT-03: Main + detail — 2/3 main, 1/3 detail, top-aligned */
+.gallery-row--main-detail {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* LAYOUT-04: Three-up — 3 equal columns */
+.gallery-row--three-up {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+/* LAYOUT-05: Image with text column */
+.gallery-row--image-text {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+/* Text on right (default, even occurrences) */
+.gallery-row--text-right {
+  grid-template-columns: 2fr 1fr;
+}
+
+.gallery-row--text-right img {
+  grid-column: 1;
+}
+
+.gallery-row--text-right .gallery-text-column {
+  grid-column: 2;
+}
+
+/* Text on left (odd occurrences) */
+.gallery-row--text-left {
+  grid-template-columns: 1fr 2fr;
+}
+
+.gallery-row--text-left img {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gallery-row--text-left .gallery-text-column {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.gallery-text-column {
+  padding: 24px 0;
+}
+
+.gallery-text-column p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #666;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* GALLERY — Mobile: all multi-column rows stack to single column */
+@media (max-width: 768px) {
+  .gallery-row--side-by-side,
+  .gallery-row--main-detail,
+  .gallery-row--three-up {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-row--image-text {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* On mobile, reset column assignments so image always comes first */
+  .gallery-row--text-left img,
+  .gallery-row--text-left .gallery-text-column {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .gallery-row--text-right img,
+  .gallery-row--text-right .gallery-text-column {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .gallery-row {
+    margin-bottom: 16px;
+  }
+}
