@@ -7,9 +7,9 @@
 
 ### Image Optimisation
 
-- [ ] **IMG-01**: All project images converted to WebP format
-- [ ] **IMG-02**: Images resized to appropriate max dimensions for web display
-- [ ] **IMG-03**: Optimised images placed in `public/work/[slug]/` ready to serve
+- [x] **IMG-01**: All project images converted to WebP format
+- [x] **IMG-02**: Images resized to appropriate max dimensions for web display
+- [x] **IMG-03**: Optimised images placed in `public/work/[slug]/` ready to serve
 
 ### Routing
 
@@ -63,9 +63,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| IMG-01 | Phase 1 | Pending |
-| IMG-02 | Phase 1 | Pending |
-| IMG-03 | Phase 1 | Pending |
+| IMG-01 | Phase 1 | Complete |
+| IMG-02 | Phase 1 | Complete |
+| IMG-03 | Phase 1 | Complete |
 | ROUTE-01 | Phase 2 | Pending |
 | ROUTE-02 | Phase 2 | Pending |
 | PAGE-01 | Phase 2 | Pending |
@@ -88,4 +88,4 @@
 
 ---
 *Requirements defined: 2026-02-24*
-*Last updated: 2026-02-24 after initial definition*
+*Last updated: 2026-02-25 after Phase 1 Plan 01 completion (IMG-01, IMG-02, IMG-03 complete)*

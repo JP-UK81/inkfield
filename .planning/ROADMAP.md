@@ -12,7 +12,7 @@ This milestone builds the five project detail pages (`/work/[slug]`) for the Ink
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Image Preparation** - Optimise and place all project images ready for Astro
+- [x] **Phase 1: Image Preparation** - Optimise and place all project images ready for Astro
 - [ ] **Phase 2: Project Pages** - Build the dynamic route, gallery layout system, and ship all 5 projects
 
 ## Phase Details
@@ -28,7 +28,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md — Write and run image optimisation script to convert 60 source JPEGs to WebP in public/work/[slug]/
+- [x] 01-01-PLAN.md — Write and run image optimisation script to convert 60 source JPEGs to WebP in public/work/[slug]/
 
 ### Phase 2: Project Pages
 **Goal**: All five project detail pages are live, matching the PDF mockup's layout rules and the site's design language, and work correctly on mobile
@@ -48,5 +48,5 @@ Phases execute in numeric order: 1 → 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Image Preparation | 0/1 | Not started | - |
+| 1. Image Preparation | 1/1 | Complete | 2026-02-25 |
 | 2. Project Pages | 0/? | Not started | - |
