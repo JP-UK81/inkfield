@@ -13,14 +13,14 @@
 
 ### Routing
 
-- [ ] **ROUTE-01**: `src/pages/work/[slug].astro` dynamic route exists and resolves all 5 slugs
-- [ ] **ROUTE-02**: Each slug (sotogrande, jacob, london-family, penthouse, lecce) renders a unique project page
+- [x] **ROUTE-01**: `src/pages/work/[slug].astro` dynamic route exists and resolves all 5 slugs
+- [x] **ROUTE-02**: Each slug (sotogrande, jacob, london-family, penthouse, lecce) renders a unique project page
 
 ### Project Page Structure
 
-- [ ] **PAGE-01**: Hero image displays full-width at top of page
+- [x] **PAGE-01**: Hero image displays full-width at top of page
 - [ ] **PAGE-02**: Project title and description displayed on page
-- [ ] **PAGE-03**: Image gallery renders below hero in correct sequence
+- [x] **PAGE-03**: Image gallery renders below hero in correct sequence
 - [ ] **PAGE-04**: Project description / excerpt shown (from existing work.astro data)
 
 ### Image Layout Rules
@@ -33,9 +33,9 @@
 
 ### Design
 
-- [ ] **DESIGN-01**: Page typography, colours, and spacing match existing site
-- [ ] **DESIGN-02**: Layout is mobile-responsive (single column on small screens)
-- [ ] **DESIGN-03**: Consistent with `src/styles/global.css` conventions
+- [x] **DESIGN-01**: Page typography, colours, and spacing match existing site
+- [x] **DESIGN-02**: Layout is mobile-responsive (single column on small screens)
+- [x] **DESIGN-03**: Consistent with `src/styles/global.css` conventions
 
 ## v2 Requirements
 
@@ -66,20 +66,20 @@
 | IMG-01 | Phase 1 | Complete |
 | IMG-02 | Phase 1 | Complete |
 | IMG-03 | Phase 1 | Complete |
-| ROUTE-01 | Phase 2 | Pending |
-| ROUTE-02 | Phase 2 | Pending |
-| PAGE-01 | Phase 2 | Pending |
+| ROUTE-01 | Phase 2 | Complete |
+| ROUTE-02 | Phase 2 | Complete |
+| PAGE-01 | Phase 2 | Complete |
 | PAGE-02 | Phase 2 | Pending |
-| PAGE-03 | Phase 2 | Pending |
+| PAGE-03 | Phase 2 | Complete |
 | PAGE-04 | Phase 2 | Pending |
 | LAYOUT-01 | Phase 2 | Pending |
 | LAYOUT-02 | Phase 2 | Pending |
 | LAYOUT-03 | Phase 2 | Pending |
 | LAYOUT-04 | Phase 2 | Pending |
 | LAYOUT-05 | Phase 2 | Pending |
-| DESIGN-01 | Phase 2 | Pending |
-| DESIGN-02 | Phase 2 | Pending |
-| DESIGN-03 | Phase 2 | Pending |
+| DESIGN-01 | Phase 2 | Complete |
+| DESIGN-02 | Phase 2 | Complete |
+| DESIGN-03 | Phase 2 | Complete |
 
 **Coverage:**
 - v1 requirements: 17 total

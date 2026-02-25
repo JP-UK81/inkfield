@@ -42,7 +42,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- Dynamic route skeleton: [slug].astro with static paths, hero, and title/excerpt/back-link block
+- [x] 02-01-PLAN.md -- Dynamic route skeleton: [slug].astro with static paths, hero, and title/excerpt/back-link block
 - [ ] 02-02-PLAN.md -- Gallery layout system: filename parser + all 5 layout variants + mobile CSS + visual checkpoint
 
 ## Progress
@@ -52,5 +52,5 @@ Phases execute in numeric order: 1 -> 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Image Preparation | 1/1 | Complete    | 2026-02-25 |
-| 2. Project Pages | 0/2 | Not started | - |
+| 1. Image Preparation | 1/1 | Complete     | 2026-02-25 |
+| 2. Project Pages | 1/2 | In progress  | - |
