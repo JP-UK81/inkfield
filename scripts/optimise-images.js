@@ -6,11 +6,14 @@
 //
 // NOTE: '91-93 Hillway-82.jpg' in Project 2 has no X.NN prefix — processed as standalone
 // NOTE: '3.00 verdina da sistemare.jpg' has Italian annotation — process as-is, verify colour visually
-// NOTE: '4.01 on nit's own...' has a typo — slugified to '4.01-on-nits-own-with-text-to-the-side.webp'
+// NOTE: "4.01 on nit's own..." has a typo — slugified to '4.01-on-nits-own-with-text-to-the-side.webp'
 
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const PROJECTS = [
   { folder: 'Project 1 - Soto',       slug: 'sotogrande' },
@@ -20,8 +23,8 @@ const PROJECTS = [
   { folder: 'Project 5 - Lecce',       slug: 'lecce' },
 ];
 
-const SOURCE_BASE = path.join(process.cwd(), 'images to optimise');
-const OUTPUT_BASE = path.join(process.cwd(), 'public', 'work');
+const SOURCE_BASE = path.join(__dirname, '..', 'images to optimise');
+const OUTPUT_BASE = path.join(__dirname, '..', 'public', 'work');
 const MAX_WIDTH = 2400;
 const WEBP_QUALITY = 82;
 
@@ -60,10 +63,8 @@ async function processProject({ folder, slug }) {
   console.log(`Done: ${slug} (${files.length} images)`);
 }
 
-(async () => {
-  for (const project of PROJECTS) {
-    console.log(`\nProcessing: ${project.folder} -> public/work/${project.slug}/`);
-    await processProject(project);
-  }
-  console.log('\nAll projects complete.');
-})();
+for (const project of PROJECTS) {
+  console.log(`\nProcessing: ${project.folder} -> public/work/${project.slug}/`);
+  await processProject(project);
+}
+console.log('\nAll projects complete.');
