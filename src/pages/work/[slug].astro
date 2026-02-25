@@ -1,0 +1,108 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const projects = [
+  {
+    slug: "sotogrande",
+    title: "Sotogrande, Family resort",
+    excerpt:
+      "Purposely built holiday villa on the edges of a world famous golf course with stunning sea views",
+    heroFile: "1.00.webp",
+  },
+  {
+    slug: "jacob",
+    title: "Jacob David, Beauty Emporio, Milan, Italy",
+    excerpt:
+      "Luxury beauty and hair salon specialising in high end fashion styling and aesthetic medicine",
+    heroFile: "3.00-verdina-da-sistemare.webp",
+  },
+  {
+    slug: "london-family",
+    title: "London family home",
+    excerpt:
+      "Complete residential renovation of two separate 1930s houses merged together",
+    heroFile: "2.01.webp",
+  },
+  {
+    slug: "penthouse",
+    title: "London Penthouse",
+    excerpt:
+      "Complete residential refurbishment of a penthouse in the heart of leafy Hampstead",
+    heroFile: "4.00.webp",
+  },
+  {
+    slug: "lecce",
+    title: "Lecce, Boutique BnB",
+    excerpt: "Complete refurbishment of an apartment into a boutique bnb",
+    heroFile: "5.00.webp",
+  },
+];
+
+export function getStaticPaths() {
+  const projectData = [
+    {
+      slug: "sotogrande",
+      title: "Sotogrande, Family resort",
+      excerpt:
+        "Purposely built holiday villa on the edges of a world famous golf course with stunning sea views",
+      heroFile: "1.00.webp",
+    },
+    {
+      slug: "jacob",
+      title: "Jacob David, Beauty Emporio, Milan, Italy",
+      excerpt:
+        "Luxury beauty and hair salon specialising in high end fashion styling and aesthetic medicine",
+      heroFile: "3.00-verdina-da-sistemare.webp",
+    },
+    {
+      slug: "london-family",
+      title: "London family home",
+      excerpt:
+        "Complete residential renovation of two separate 1930s houses merged together",
+      heroFile: "2.01.webp",
+    },
+    {
+      slug: "penthouse",
+      title: "London Penthouse",
+      excerpt:
+        "Complete residential refurbishment of a penthouse in the heart of leafy Hampstead",
+      heroFile: "4.00.webp",
+    },
+    {
+      slug: "lecce",
+      title: "Lecce, Boutique BnB",
+      excerpt: "Complete refurbishment of an apartment into a boutique bnb",
+      heroFile: "5.00.webp",
+    },
+  ];
+
+  return projectData.map((project) => ({
+    params: { slug: project.slug },
+    props: {
+      slug: project.slug,
+      title: project.title,
+      excerpt: project.excerpt,
+      heroFile: project.heroFile,
+    },
+  }));
+}
+
+const { slug, title, excerpt, heroFile } = Astro.props;
+---
+
+<Layout title={`${title} | Inkfield`}>
+  <article class="project-page">
+    <div class="project-hero">
+      <img src={`/work/${slug}/${heroFile}`} alt={title} />
+    </div>
+
+    <div class="project-header grid-content">
+      <a class="project-back" href="/work">&larr; All projects</a>
+      <h1 class="project-title">{title}</h1>
+      <p class="project-excerpt">{excerpt}</p>
+    </div>
+
+    <div class="project-gallery grid-content">
+    </div>
+  </article>
+</Layout>
