@@ -57,15 +57,16 @@ import { initLenis } from "../scripts/lenis.js";
       const closeBtn = document.getElementById("menu-close");
 
       function toggleMenu() {
-        hamburger.classList.toggle("open");
-        menu.classList.toggle("active");
+        hamburger?.classList.toggle("open");
+        menu?.classList.toggle("active");
         document.body.classList.toggle("no-scroll");
       }
 
       hamburger?.addEventListener("click", toggleMenu);
       closeBtn?.addEventListener("click", toggleMenu);
     </script>
-    <script>
+    <script type="module">
+      import { initLenis } from "../scripts/lenis.js";
       initLenis();
     </script>
   </body>
